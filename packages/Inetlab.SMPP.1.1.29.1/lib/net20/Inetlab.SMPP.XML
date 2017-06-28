@@ -1,0 +1,3153 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Inetlab.SMPP</name>
+    </assembly>
+    <members>
+        <member name="M:Inetlab.SMPP.Builders.IBuilder`1.Create(Inetlab.SMPP.Common.SmppClientBase)">
+            <summary>
+            Creates a list of PDUs using settings from specified <see cref="T:Inetlab.SMPP.Common.SmppClientBase"/>
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.IBuilder`1.Create(Inetlab.SMPP.Common.EncodingMapper)">
+            <summary>
+            Creates a list of PDUs using settings from specified <see cref="T:Inetlab.SMPP.Common.EncodingMapper"/>
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.Builder`2.MessageInPayload">
+            <summary>
+            Send user data in the message_payload field and concatenation options in TLV paramaters
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.Builder`2.MessageInPayload(System.Int32)">
+            <summary>
+            Send user data in the message_payload and specify maximal size of one message segment
+            </summary>
+            <param name="messageSize">Maximal size of one part of the message</param>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.Builder`2.MaxPartSize(System.Int32)">
+            <summary>
+            Defines how long can be one part of the concatenated message.
+            </summary>
+            <param name="partSize">Maximal size of one part of the message. Deafult is 140 bytes.</param>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.Builder`2.ConcatenationInSAR">
+            <summary>
+            Send user data in the short_message field and concatenation options in TLV paramaters
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.Builder`2.ConcatenationInSAR(System.Byte)">
+            <summary>
+            Send user data in the short_message field and concatenation options in TLV paramaters.
+            </summary>
+            <param name="referenceNumber">Reference number for a particular concatenated short message</param>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.Builder`2.ConcatenationInUDH">
+            <summary>
+            Send User Data in the short_message field and concatenation options in User Data Header
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.Builder`2.ConcatenationInUDH(System.Byte)">
+            <summary>
+            Send User Data in the short_message field and concatenation options in User Data Header
+            </summary>
+            <param name="referenceNumber">Reference number for a particular concatenated short message</param>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.IDeliverSmBuilder.Text(System.String)">
+            <summary>
+            Specifies message text. Can be long text.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.IDeliverSmBuilder.Data(System.Byte[])">
+            <summary>
+            Sets user data for short message
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.IDeliverSmBuilder.From(System.String)">
+            <summary>
+            Specifies sender address with automatic detection of TON and NPI
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.IDeliverSmBuilder.From(System.String,Inetlab.SMPP.Common.AddressTON,Inetlab.SMPP.Common.AddressNPI)">
+            <summary>
+            Specifies sender address with TON and NPI
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.IDeliverSmBuilder.From(System.String,System.Byte,System.Byte)">
+            <summary>
+            Specifies sender address with TON and NPI
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.IDeliverSmBuilder.To(System.String)">
+            <summary>
+            Specifies destination address with automatic detection of TON and NPI
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.IDeliverSmBuilder.To(System.String,Inetlab.SMPP.Common.AddressTON,Inetlab.SMPP.Common.AddressNPI)">
+            <summary>
+            Specifies destination address with TON and NPI
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.IDeliverSmBuilder.To(System.String,System.Byte,System.Byte)">
+            <summary>
+            Specifies destination address with TON and NPI
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.IDeliverSmBuilder.MessageInPayload">
+            <summary>
+            Send message text in TLV parameter "message_payload"
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.IDeliverSmBuilder.MessageInPayload(System.Int32)">
+            <summary>
+            Send message text in the "message_payload" parameter and specify maximal size of one message segment
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.IDeliverSmBuilder.ConcatenationInSAR">
+            <summary>
+            Send concatenation parameters in TLV options
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.IDeliverSmBuilder.Receipt(Inetlab.SMPP.Common.Receipt)">
+            <summary>
+            Specifies delivery receipt
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Builders.IDeliverSmBuilder.Set(Inetlab.SMPP.SmsAction{Inetlab.SMPP.PDU.DeliverSm})">
+            <summary>
+            Execute additional actions when creating PDU;
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.BatchMonitor.evComplete">
+            <summary>
+            Occurs when all submitted PDU are received all responses.
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.BatchMonitor.evTransferTimeout">
+            <summary>
+            Occurs when sending or receiving PDU was not processed duting <see cref="P:Inetlab.SMPP.Common.BatchMonitor.Timeout"/> interval.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.CertificateValidationEventArgs">
+            <summary>
+            Class that provides event data for validation remote certificates
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.CertificateValidationEventArgs.Certificate">
+            <summary>
+            The certificate used to authenticate the remote party.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.CertificateValidationEventArgs.Chain">
+            <summary>
+            The chain of certificate authorities associated with the remote certificate.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.CertificateValidationEventArgs.SslPolicyErrors">
+            <summary>
+            One or more errors associated with the remote certificate.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.CertificateValidationEventArgs.Accepted">
+            <summary>
+            A <see cref="T:System.Boolean" /> value that determines whether the specified certificate is accepted for authentication.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.CommandSet">
+            <summary>
+            The CommandSet identifies the type of message the SMPP PDU represents,
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandSet.GenericNack">
+            <summary>
+            generic negative acknowledgement to an SMPP PDU submitted with an invalid message header.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.CommandStatus">
+            <summary>
+            CommandStatus of an SMPP message response indicates the success or failure of an SMPP request.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_ROK">
+            <summary>
+            No Error
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVMSGLEN">
+            <summary>
+            Message Length is invalid
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVCMDLEN">
+            <summary>
+            Command Length is invalid
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVCMDID">
+            <summary>
+            Invalid Command ID
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVBNDSTS">
+            <summary>
+            Incorrect BIND Status for given command
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RALYBND">
+            <summary>
+            ESME Already in Bound State
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVPRTFLG">
+            <summary>
+            Invalid Priority Flag
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVREGDLVFLG">
+            <summary>
+            Invalid Registered Delivery Flag
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RSYSERR">
+            <summary>
+             System Error
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVSRCADR">
+            <summary>
+            Invalid Source Address
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVDSTADR">
+            <summary>
+            Invalid Dest Addr
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVMSGID">
+            <summary>
+            Message ID is invalid
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RBINDFAIL">
+            <summary>
+            Bind Failed
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVPASWD">
+            <summary>
+            Invalid Password
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVSYSID">
+            <summary>
+            Invalid System ID
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RCANCELFAIL">
+            <summary>
+            Cancel SM Failed
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RREPLACEFAIL">
+            <summary>
+            Replace SM Failed
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RMSGQFUL">
+            <summary>
+            Message Queue Full
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVSERTYP">
+            <summary>
+            Invalid Service Type
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVNUMDESTS">
+            <summary>
+            Invalid number of destinations
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVDLNAME">
+            <summary>
+            Invalid Distribution List name
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVDESTFLAG">
+            <summary>
+             Destination flag is invalid (submit_multi)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVSUBREP">
+            <summary>
+            Invalid "submit with replace" request(i.e. submit_sm with replace_if_present_flag set)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVESMCLASS">
+            <summary>
+            Invalid esm_class field data
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RCNTSUBDL">
+            <summary>
+            Cannot Submit to Distribution List
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RSUBMITFAIL">
+            <summary>
+            submit_sm or submit_multi failed
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVSRCTON">
+            <summary>
+             Invalid Source address TON
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVSRCNPI">
+            <summary>
+            Invalid Source address NPI
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVDSTTON">
+            <summary>
+            Invalid Destination address TON
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVDSTNPI">
+            <summary>
+            Invalid Destination address NPI
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVSYSTYP">
+            <summary>
+            Invalid system_type field
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVREPFLAG">
+            <summary>
+            Invalid replace_if_present flag
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVNUMMSGS">
+            <summary>
+            Invalid number of messages
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RTHROTTLED">
+            <summary>
+            Throttling error (ESME has exceeded allowed message limits)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVSCHED">
+            <summary>
+            Invalid Scheduled Delivery Time
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVEXPIRY">
+            <summary>
+            Invalid message validity period (Expiry time)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVDFTMSGID">
+            <summary>
+            Predefined Message Invalid or Not Found
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RX_T_APPN">
+            <summary>
+             ESME Receiver Temporary App Error Code
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RX_P_APPN">
+            <summary>
+            ESME Receiver Permanent App Error Code
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RX_R_APPN">
+            <summary>
+            ESME Receiver Reject Message Error Code
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RQUERYFAIL">
+            <summary>
+            query_sm request failed
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVOPTPARSTREAM">
+            <summary>
+             Error in the optional part of the PDU Body.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_ROPTPARNOTALLWD">
+            <summary>
+             Optional Parameter not allowed
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVPARLEN">
+            <summary>
+            Invalid Parameter Length.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RMISSINGOPTPARAM">
+            <summary>
+            Expected Optional Parameter missing
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RINVOPTPARAMVAL">
+            <summary>
+            Invalid Optional Parameter Value
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RDELIVERYFAILURE">
+            <summary>
+            Delivery Failure (used for data_sm_resp)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.ESME_RUNKNOWNERR">
+            <summary>
+            Unknown Error
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.SMPPCLIENT_UNEXPRESP">
+            <summary>
+            SMPP Client Unexpected Response
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.SMPPCLIENT_RCVTIMEOUT">
+            <summary>
+            SMPP Client Receive Timeout
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.SMPPCLIENT_NOCONN">
+            <summary>
+             SMPP Client No Connection
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.SMPPCLIENT_UNBOUND">
+            <summary>
+            SMPP Client Unbound
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.SMPPCLIENT_NORESP">
+            <summary>
+            SMPP Client No Response
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.SMPPCLIENT_GENERIC_NACK">
+            <summary>
+            SMPP Client generic negative acknowledgement 
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.CommandStatus.SMPPCLIENT_UNKNOWNERROR">
+            <summary>
+            SMPP Client Unknown Error
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.Concatenation">
+            <summary>
+            Represents concatenation parameters
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Concatenation.ReferenceNumber">
+            <summary>
+            Concatenated short message reference number.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Concatenation.Total">
+            <summary>
+            Maximum number of short messages in the concatenated short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Concatenation.SequenceNumber">
+            <summary>
+            Sequence number of the current short message.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.ConnectionMode">
+            <summary>
+            ESME may bind to the SMSC as either a Transmitter (called ESME
+            Transmitter), a Receiver (called ESME Receiver) or a Transceiver (called ESME Transceiver).
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.ConnectionMode.None">
+            <summary>
+            Connection mode not specified.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.ConnectionMode.Transmitter">
+            <summary>
+            An ESME bound as a Transmitter is authorised to send short messages to the SMSC and to
+            receive the corresponding SMPP responses from the SMSC.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.ConnectionMode.Receiver">
+            <summary>
+            An ESME bound as a Receiver is authorised to receive short messages from the SMSC and to
+            return the corresponding SMPP message responses to the SMSC.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.ConnectionMode.Transceiver">
+            <summary>
+            An ESME bound as a Transceiver is allowed to send messages to the SMSC and receive
+            messages from the SMSC over a single SMPP session.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.ConnectionStatus">
+            <summary>
+            Client connection status
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.ConnectionStatus.Closed">
+            <summary>
+            Connection closed
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.ConnectionStatus.Open">
+            <summary>
+            Client connected, but not bound
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.ConnectionStatus.Bound">
+            <summary>
+            Client bound
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.ConnectionStatus.Outbound">
+            <summary>
+            MC initiates SMPP session
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.DestinationAddressType">
+            <summary>
+            Identifies whether destination address is a Distribution List Name or SME address.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.DataCodings">
+            <summary>
+            Indicates the encoding scheme of the short message.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Default">
+            <summary>
+            SMSC Default Alphabet (GSM 7 bit) (0x0)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.ASCII">
+            <summary>
+            IA5 (CCITT T.50)/ASCII (ANSI X3.4) (0x1)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Octets">
+            <summary>
+            Octet unspecified (8-bit binary) (0x2)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Latin1">
+            <summary>
+            Latin 1 (ISO-8859-1) (0x3)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.OctetUnspecified">
+            <summary>
+            Octet unspecified (8-bit binary) (0x4)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Cyrllic">
+            <summary>
+            Cyrllic (ISO-8859-5)(0x6)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.LatinHebrew">
+            <summary>
+            Latin/Hebrew (ISO-8859-8) (0x7)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.UCS2">
+            <summary>
+            UCS2 (ISO/IEC-10646) (0x8)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class0FlashMessage">
+            <summary>
+            Flash message (Class 0) (0x10)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class1MEMessage">
+            <summary>
+            ME-specific message (Class 1) (0x11)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class2SIMMessage">
+            <summary>
+            IM/USIM-specific message (Class 2) (0x12)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class3TEMessage">
+            <summary>
+            TE-specific message (Class 3) (0x13)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class0FlashMessage8bit">
+            <summary>
+            Flash message (Class 0) with 8 bit data (0x14)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class1MEMessage8bit">
+            <summary>
+            ME-specific message (Class 1) with 8 bit data (0x15)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class2SIMMessage8bit">
+            <summary>
+            IM/USIM-specific message (Class 2) with 8 bit data (0x16)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class3TEMessage8bit">
+            <summary>
+            TE-specific message (Class 3) with 8 bit data (0x17)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class0FlashMessageUCS2">
+            <summary>
+            Flash message (Class 0) with UCS2 characters (0x18)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class1MEMessageUCS2">
+            <summary>
+            ME-specific message (Class 1) with UCS2 characters  (0x19)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class2SIMMessageUCS2">
+            <summary>
+            IM/USIM-specific message (Class 2) with UCS2 characters (0x1A)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class3TEMessageUCS2">
+            <summary>
+            TE-specific message (Class 3) with UCS2 characters  (0x1B)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class0">
+            <summary>
+            Message Class 0 (0xF0)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class1">
+            <summary>
+            Message Class 1 (0xF1)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class2">
+            <summary>
+            Message Class 2 (0xF2)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class3">
+            <summary>
+            Message Class 3 (0xF3)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class08Bit">
+            <summary>
+            Class 0 Flash message 8bit data (0xF4)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class1ME8Bit">
+            <summary>
+            Class 1 ME specific 8-bit data (0xF5)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class2SIM8Bit">
+            <summary>
+            Class 2 SIM specific 8-bit data (0xF6)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.Class3TE8Bit">
+            <summary>
+            Class 3 TE specific 8-bit data (0xF7)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.GroupAutomaticDeletion">
+            <summary>
+            Coding Group: Message Marked for Automatic Deletion
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.GroupMessageClass">
+            <summary>
+            Coding Group: Data Coding/Message Class
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.DefaultFlashSMS">
+            <summary>
+            Flash SMS with GSM 7 bit charset (0x10)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.DataCodings.UnicodeFlashSMS">
+            <summary>
+            Flash SMS with Unicode characters (0x18)
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.DestinationAddress">
+            <summary>
+            Represents SME address or/and Distribution name 
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.DestinationAddress.#ctor(System.String)">
+            <summary>
+            Create destination address with Distribution List Name
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.DestinationAddress.#ctor(System.String,System.Byte,System.Byte)">
+            <summary>
+            Create destination address with SME Address
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.DestinationAddress.DestType">
+             <summary>
+            Identifies whether destination address is a Distribution List name or SME address
+             </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.DestinationAddress.Ton">
+            <summary>
+            Type of Number for destination.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.DestinationAddress.Npi">
+            <summary>
+            Numbering Plan Indicator for destination.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.DestinationAddress.Address">
+            <summary>
+            Destination address of short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.DestinationAddress.ListName">
+            <summary>
+            Name of Distribution List.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.EncodingMapper.MapEncoding(Inetlab.SMPP.Common.DataCodings,System.Text.Encoding)">
+            <summary>
+            Assigns SMPP data coding to characters encoding represented by class inherited from Encoding class
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.EncodingMapper.GetMappedEncoding(Inetlab.SMPP.Common.DataCodings)">
+            <summary>
+            Returns mapped Encoding for specified dataCoding. If dataCoding not found in mapped encodings, returns Encoding.Default
+            </summary>
+            <param name="dataCoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.EncodingMapper.GetMessageText(Inetlab.SMPP.PDU.SmppPDU)">
+            <summary>
+            Gets text from message. 
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.EncodingMapper.GetMessageText(System.Byte[],Inetlab.SMPP.Common.DataCodings)">
+            <summary>
+            Converts sort message buffer to unicode string using specified data coding.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.EncodingMapper.GetMessageBytes(System.String,Inetlab.SMPP.Common.DataCodings)">
+            <summary>
+            Converts string to short message bytes for specified data coding.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.GSMSpecificFeatures">
+            <summary>
+            GSM Network Specific Features (bits 7-6 of esm_class)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.GSMSpecificFeatures.No">
+            <summary>
+            No specific features selected
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.GSMSpecificFeatures.UDHI">
+            <summary>
+            UDHI Indicator set
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.GSMSpecificFeatures.ReplyPath">
+            <summary>
+            Set Reply Path (only relevant for GSM network)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.GSMSpecificFeatures.UDHIandReplyPath">
+            <summary>
+            Set UDHI and Reply Path (only relevant for GSM network)
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.UserDataHeader">
+            <summary>
+            Represents GSM User Data Header information in the short message user data.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.UserDataHeader.IEI">
+            <summary>
+            Identifies Information Element in the User Data Header
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.UserDataHeader.Data">
+            <summary>
+            Information Element Data
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.UserDataHeader.Length">
+            <summary>
+            Length of Information Element
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Headers.ConcatenatedShortMessages8bit.ReferenceNumber">
+            <summary>
+            Concatenated short message reference number.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Headers.ConcatenatedShortMessages8bit.Total">
+            <summary>
+            Maximum number of short messages in the concatenated short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Headers.ConcatenatedShortMessages8bit.SequenceNumber">
+            <summary>
+            Sequence number of the current short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Headers.ConcatenatedShortMessage16bit.ReferenceNumber">
+            <summary>
+            Concatenated short message reference number.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Headers.ConcatenatedShortMessage16bit.Total">
+            <summary>
+            Maximum number of short messages in the concatenated short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Headers.ConcatenatedShortMessage16bit.SequenceNumber">
+            <summary>
+            Sequence number of the current short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Headers.ApplicationPortAddressingScheme16bit.DestinationPort">
+            <summary>
+            Destination Port.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Headers.ApplicationPortAddressingScheme16bit.OriginatorPort">
+            <summary>
+            Originator Port.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.InformationElementIdentifiers">
+            <summary>
+            Identifies Information Element in the User Data Header
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.ConcatenatedShortMessages8bit">
+            <summary>
+            Concatenated short messages, 8-bit reference number
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.SpecialSMSMessageIndication">
+            <summary>
+            Special SMS Message Indication
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.ApplicationPortAddressingScheme8bit">
+            <summary>
+            Application port addressing scheme, 8 bit address
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.ApplicationPortAddressingScheme16bit">
+            <summary>
+            Application port addressing scheme, 16 bit address
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.SMSCControlParameters">
+            <summary>
+            SMSC Control Parameters
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.UDHSourceIndicator">
+            <summary>
+            UDH Source Indicator 
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.ConcatenatedShortMessage16bit">
+            <summary>
+            Concatenated short message, 16-bit reference number
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.WirelessControlMessageProtocol">
+            <summary>
+            Wireless Control Message Protocol
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.TextFormatting">
+            <summary>
+            Text Formatting
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.PredefinedSound">
+            <summary>
+            Predefined Sound
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.UserDefinedSound">
+            <summary>
+            User Defined Sound (iMelody max 128 bytes)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.PredefinedAnimation">
+            <summary>
+            Predefined Animation
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.LargeAnimation">
+            <summary>
+            Large Animation (16*16 times 4 = 32*4 =128 bytes)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.SmallAnimation">
+            <summary>
+            Small Animation (8*8 times 4 = 8*4 =32 bytes)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.LargePicture">
+            <summary>
+            Large Picture (32*32 = 128 bytes)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.SmallPicture">
+            <summary>
+            Small Picture (16*16 = 32 bytes)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.VariablePicture">
+            <summary>
+            Variable Picture
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.UserPromptIndicator">
+            <summary>
+            User prompt indicator
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.ExtendedObject">
+            <summary>
+            Extended Object
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.ReusedExtendedObject">
+            <summary>
+            Reused Extended Object
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.CompressionControl">
+            <summary>
+            Compression Control
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.ObjectDistributionIndicator">
+            <summary>
+            Object Distribution Indicator
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.StandardWvgObject">
+            <summary>
+            Standard WVG object
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.CharacterSizeWvgObject">
+            <summary>
+            Character Size WVG object
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.ExtendedObjectDataRequestCommand">
+            <summary>
+            Extended Object Data Request Command
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.EMailHeader">
+            <summary>
+            RFC 822 E-Mail Header
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.HyperlinkFormatElement">
+            <summary>
+            Hyperlink format element
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.ReplyAddressElement">
+            <summary>
+            Reply Address Element
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.EnhancedVoiceMailInformation">
+            <summary>
+            Enhanced Voice Mail Information
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.NationalLanguageSingleShift">
+            <summary>
+            National Language Single Shift 
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.NationalLanguageLockingShift">
+            <summary>
+            National Language Locking Shift
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.InformationElementIdentifiers.Unknown">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.IntermediateNotification">
+            <summary>
+            Intermediate Notification (bit 5 of registered_delivery)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.IntermediateNotification.NotRequested">
+            <summary>
+            No Intermediate notification requested (default)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.IntermediateNotification.Requested">
+            <summary>
+            Intermediate notification requested
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.ISmppHeader.Length">
+            <summary>
+            Gets the overall length in octets of the SMPP message. The SMPP message header (including the command_length field itself), the mandatory parameters and the optional parameters are all considered.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.ISmppHeader.Command">
+            <summary>
+            Gets or sets type of message the SMPP PDU represents.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.ISmppHeader.Status">
+            <summary>
+            Indicates the success or failure of an SMPP request.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.ISmppHeader.Sequence">
+            <summary>
+            Unique sequence number. A sequence number allows a response PDU to be correlated with a request PDU.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.ISourceAddress.SourceAddrTon">
+            <summary>
+            Type of Number for source address.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.ISourceAddress.SourceAddrNpi">
+            <summary>
+            Numbering Plan Indicator for source.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.ISourceAddress.SourceAddr">
+            <summary>
+            Address of SME which originated this message.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.MessageComposer">
+            <summary>
+            Helps to assemble concatenated messages
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.MessageComposer.Timeout">
+            <summary>
+            Gets or sets time in miliseconds for waiting of all message segments.
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.MessageComposer.evFullMessageReceived">
+            <summary>
+            Occurs when all message segments received. Contains concatenated message text.
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.MessageComposer.evFullMessageTimedout">
+            <summary>
+            Occurs when all message segments were not received during <see cref="P:Inetlab.SMPP.Common.MessageComposer.Timeout"/>.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.MessageModes">
+            <summary>
+            Messaging Modes (bits 1-0 of esm_class) 
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageModes.Default">
+            <summary>
+            Default SMSC Mode (e.g. Store and Forward)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageModes.Datagram">
+            <summary>
+            Datagram mode
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageModes.Forward">
+            <summary>
+            Forward (i.e. Transaction) mode
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageModes.StoreForward">
+            <summary>
+            Store and Forward mode
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.MessageState">
+            <summary>
+            States for a short message.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageState.Enroute">
+            <summary>
+            The message is in enroute state.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageState.Delivered">
+            <summary>
+            Message is delivered to destination
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageState.Expired">
+            <summary>
+             Message validity period has expired.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageState.Deleted">
+            <summary>
+            Message has been deleted.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageState.Undeliverable">
+            <summary>
+             Message is undeliverable
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageState.Accepted">
+            <summary>
+            Message is in accepted state 
+            (i.e. has been manually read on behalf of the subscriber by customer service)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageState.Unknown">
+            <summary>
+            Message is in invalid state
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageState.Rejected">
+            <summary>
+            Message is in a rejected state
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.MessageTypes">
+            <summary>
+            Messaging Types (bits 5-2 of esm_class) 
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageTypes.Default">
+            <summary>
+            Default message Type (i.e. normal message)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageTypes.SMEDeliveryAcknowledgement">
+            <summary>
+            (ESME -> SMSC)
+            Short Message contains ESME Delivery Acknowledgement
+            (SMSC -> ESME)
+            Short Message contains SME Delivery Acknowledgement
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageTypes.SMEManualAcknowledgement">
+            <summary>
+            (ESME -> SMSC)
+            Short Message contains ESME Manual/User Acknowledgement
+            (SMSC -> ESME)
+            Short Message contains SME Manual/User Acknowledgment
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageTypes.SMSCDeliveryReceipt">
+            <summary>
+            (SMSC -> ESME)
+            Short Message contains SMSC Delivery Receipt
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageTypes.ConversationAbort">
+            <summary>
+            (SMSC -> ESME)
+            Short Message contains Conversation Abort (Korean CDMA)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.MessageTypes.IntermediateDeliveryNotification">
+            <summary>
+            (SMSC -> ESME)
+            Short Message contains Intermediate Delivery Notification
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.Npi">
+            <summary>
+            Numeric Plan Indicator (NPI) used in the SME address parameters.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Npi.Unknown">
+            <summary>
+            Unknown
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Npi.ISDN">
+            <summary>
+            ISDN
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Npi.DataX121">
+            <summary>
+            DataX121
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Npi.TelexF69">
+            <summary>
+            TelexF69
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Npi.LandMobileE212">
+            <summary>
+            LandMobileE212
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Npi.National">
+            <summary>
+            National
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Npi.Private">
+            <summary>
+            Private
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Npi.ERMES">
+            <summary>
+            ERMES
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Npi.Internet">
+            <summary>
+            Internet
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Npi.WAP">
+            <summary>
+            WAP
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.OptionalTags">
+            <summary>
+            Identifes the Tag field that used to uniquely identify the particular optional parameter
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.OptionalTags.DestAddrSubunit">
+            <summary>
+            Parameter is used to route messages when received by a mobile station,
+            for example to a smart card in the mobile station or to an external device connected to the
+            mobile station.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.OptionalTags.DestNetworkType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.OptionalTags.SourceNetworkType">
+            <summary>
+            indicate the network type associated with the device that originated the message
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.OptionalTags.ReceiptedMessageId">
+            <summary>
+            The receipted_message_id parameter indicates the ID of the message being receipted in an SMSC Delivery Receipt. 
+            This is the opaque SMSC message identifier that was returned in the message_id parameter of the SMPP response PDU 
+            that acknowledged the submission of the original message.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.OptionalTags.MessagePayload">
+            <summary>
+            message_payload parameter contains the user data.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.OptionalTags.SARReferenceNumber">
+            <summary>
+            The sar_msg_ref_num parameter is used to indicate the reference number for a particular
+            concatenated short message.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.OptionalTags.SARTotalSegments">
+            <summary>
+            The sar_total_segments parameter is used to indicate the total number of short messages
+            within the concatenated short message.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.OptionalTags.SARSequenceNumber">
+            <summary>
+            The sar_segment_seqnum parameter is used to indicate the sequence number of a particular
+            short message within the concatenated short message.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.OptionalTags.MoreMessagesToSend">
+            <summary>
+            The more_messages_to_send parameter is used by the ESME in the submit_sm and data_sm
+            operations to indicate to the SMSC that there are further messages for the same destination
+            SME. The SMSC may use this setting for network resource optimization.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.OptionalTags.MessageState">
+            <summary>
+            The message_state optional parameter is used by the SMSC in the deliver_sm and
+            data_sm PDUs to indicate to the ESME the final message state for an SMSC Delivery Receipt.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.Receipt">
+            <summary>
+            Represents Delivery receipt
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Receipt.MessageId">
+            <summary>
+            The message ID allocated to the message by the SMSC when originally submitted.
+            You can get it from SUBMIT_SM_RESP.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Receipt.Submitted">
+            <summary>
+            Number of short messages originally submitted.
+            This is only relevant when the original message was submitted to a distribution list.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Receipt.Delivered">
+            <summary>
+            Number of short messages delivered. 
+            This is only relevant where the original message was submitted to a distribution list
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Receipt.SubmitDate">
+            <summary>
+            The time and date at which the short message was submitted.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Receipt.DoneDate">
+            <summary>
+            The time and date at which the short message reached it’s final state.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Receipt.State">
+            <summary>
+            The final status of the message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Receipt.ErrorCode">
+            <summary>
+            Network specific error code or an SMSC error code for the attempted delivery of the message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.Receipt.Text">
+            <summary>
+            The first 20 characters of the short message.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.ISequenceGenerator.NextSequenceNumber">
+            <summary>
+            Returns next sequence number which allows SMPP requests and responses to be associated for correlation purposes.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.ISequenceGenerator.NextReferenceNumber">
+            <summary>
+            Returns next reference number which allows parallel transmission of several segmented messages.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.SMEAcknowledgement">
+            <summary>
+            SME originated Acknowledgement (bits 3 and 2 of registered_delivery)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.SMEAcknowledgement.NotRequested">
+            <summary>
+            No recipient SME acknowledgment requested (default)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.SMEAcknowledgement.Delivery">
+            <summary>
+            SME Delivery Acknowledgement requested
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.SMEAcknowledgement.Manual">
+            <summary>
+            SME Manual/User Acknowledgment requested
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.SMEAcknowledgement.DeliveryManual">
+            <summary>
+            Both Delivery and Manual/User Acknowledgment requested
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.SmppClientBase">
+            <summary>
+            Base class that provides common members for <see cref="T:Inetlab.SMPP.SmppClient"/> and <see cref="T:Inetlab.SMPP.Common.SmppServerClient"/>
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppClientBase.Disconnect">
+            <summary>
+            Disconnect client from remote end point
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppClientBase.ResetConnection">
+            <summary>
+            Reset connection. Sends RST to remote side.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppClientBase.MapEncoding(Inetlab.SMPP.Common.DataCodings,System.Text.Encoding)">
+            <summary>
+            Assigns SMPP data coding to characters encoding represented by class inherited from Encoding class
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppClientBase.GetMappedEncoding(Inetlab.SMPP.Common.DataCodings)">
+            <summary>
+            Returns mapped Encoding for specified dataCoding. If dataCoding not found in mapped encodings, returns Encoding.Default
+            </summary>
+            <param name="dataCoding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppClientBase.GetMessageText(Inetlab.SMPP.PDU.SmppPDU)">
+            <summary>
+            Gets text from message. 
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppClientBase.GetMessageText(System.Byte[],Inetlab.SMPP.Common.DataCodings)">
+            <summary>
+            Converts sort message buffer to unicode string using specified data coding.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppClientBase.GetMessageBytes(System.String,Inetlab.SMPP.Common.DataCodings)">
+            <summary>
+            Converts string to short message bytes for specified data coding.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppClientBase.EnquireLink">
+            <summary>
+            Sends ENQUIRE_LINK message. This message is used to provide a confidence check of the communication path between an ESME and an SMSC. 
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppClientBase.EnquireLink(Inetlab.SMPP.PDU.EnquireLink)">
+            <summary>
+            Sends ENQUIRE_LINK message. This message is used to provide a confidence check of the communication path between an ESME and an SMSC. 
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppClientBase.EnquireLinkAsync(Inetlab.SMPP.PDU.EnquireLink)">
+            <summary>
+            Sends ENQUIRE_LINK message, asynchronously.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppClientBase.UnBind">
+            <summary>
+            Unregister client from SMSC
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppClientBase.UnBindAsync(Inetlab.SMPP.PDU.UnBind)">
+            <summary>
+            Unregister client from SMSC, asynchronously.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppClientBase.SubmitData(Inetlab.SMPP.PDU.DataSm)">
+            <summary>
+            Sends DATA_SM message
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppClientBase.SubmitData(System.Collections.Generic.IList{Inetlab.SMPP.PDU.DataSm})">
+            <summary>
+            Sends DATA_SM message collection
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.Queue">
+            <summary>
+            Returns internal queue state for sent and received PDUs.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.SystemID">
+            <summary>
+            Gets ID of the client
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.SystemType">
+            <summary>
+            Identifies the type requesting to bind  with the SMSC.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.AddrNpi">
+            <summary>
+            Numbering Plan Indicator for adresses in <see cref="P:Inetlab.SMPP.Common.SmppClientBase.AddressRange"/>.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.AddrTon">
+            <summary>
+            Indicates Type of Number for adresses in <see cref="P:Inetlab.SMPP.Common.SmppClientBase.AddressRange"/>.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.AddressEncoding">
+            <summary>
+            Defines default encoding for source and destination addresses in all PDUs. By default takes encoding for DataCodings.Default.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.AddressRange">
+            <summary>
+            Identifies a set of SME addresses (short codes, phone number) for which you are receiving messages. 
+            Regular Expression notation should be used to specify a range of addresses.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.SendSpeedLimit">
+            <summary>
+            Specifies a number of messages per second that client sends to the server . Default is 0, that means unlimited number of messages.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.WorkerThreads">
+            <summary>
+            Specifies a number of worker threads that process received messages. Default is 3.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.Tag">
+            <summary>
+            Gets or sets an object that contains data to associate with the client.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.Connected">
+            <summary>
+            Gets whether the ESME connected to SMSC
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.Status">
+            <summary>
+            Client connection status
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.ResponseTimeout">
+            <summary>
+            Get or sets the time in milliseconds to wait for Response PDU
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.ConnectionTimeout">
+            <summary>
+            Gets or sets the time to wait while trying to establish a connection before terminating the attempt 
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.InactivityTimeout">
+            <summary>
+            Specifies the maximum period after which time, if no SMPP messages are exchanged, the SMPP session may be dropped gracefully. Default is 2 minutes.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.RaiseEventsInMainThread">
+            <summary>
+            Helps to run SMPP events in main (UI) thread. 
+            </summary>
+            <remarks>When it is true, you don't need to check InvokeRequired in the events handlers</remarks>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.SequenceGenerator">
+            <summary>
+            Gets or sets sequence number generator for correlation purposes in SMPP protocol.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.EncodingMapper">
+            <summary>
+            Gets or sets encoding mapper that manage relation between SMPP Data Coding and .NET Encoding
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppClientBase.EnquireLinkInterval">
+            <summary>
+            Specifies a period of time when SMPP session status will be checked with EnquireLink command. 
+            </summary>
+            <para>
+            EnquiryLink command will be send during inactivity time. By default is disabled.
+            </para>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppClientBase.evUnBind">
+            <summary>
+            Occurs when Unbind packet received from SMSC
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppClientBase.evUnBindComplete">
+            <summary>
+            Occurs when UNBIND_RESP packet received from SMSC
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppClientBase.evGenericNack">
+            <summary>
+            Occurs when received GenericNack PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppClientBase.evEnquireLink">
+            <summary>
+            Occurs when received EnquireLink PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppClientBase.evEnquireLinkComplete">
+            <summary>
+            Occurs when ENQUIRE_LINK_RESP packet received from remote side
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppClientBase.evDataSm">
+            <summary>
+            Occurs when receiving DataSm PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppClientBase.evConnected">
+            <summary>
+            Occurs when ESME connected to SMSC
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppClientBase.evDisconnected">
+            <summary>
+            Occurs when client disconnects 
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppClientBase.evPduReceiving">
+            <summary>
+            Occurs before processing PDU received from remote endpoint
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppClientBase.evPduSending">
+            <summary>
+            Occurs before sending PDU to remote endpoint
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppClientBase.evPduRejected">
+            <summary>
+            Occurs when sending PDU not possible. For example SmppClient disconnected.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.QueueState">
+            <summary>
+            Represents state for receive and sent queues
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.QueueState.SendCount">
+            <summary>
+            Gets number of PDUs that stay in the send queue before sending to network 
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.QueueState.SendWorkersCount">
+            <summary>
+            Gets number of worker threads that send PDUs to remote side. Always 1.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.QueueState.ReceiveCount">
+            <summary>
+            Gets number of PDUs that stay in the receive queue and wait for being processed with application event handlers. 
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.QueueState.ReceiveWorkersCount">
+            <summary>
+            Gets number of worker threads that process PDUs from receive queue and invoke event handlers in the application
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppSocket.Connect(System.Net.EndPoint)">
+            <summary>
+            Connect to SMSC using IPEndPoint instance
+            </summary>
+            <param name="endPoint">IPEndPoint instance</param>
+            <returns>A Boolean value indicating true if the client is connected, false if not.</returns>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppSocket.Disconnect(System.Boolean)">
+            <summary>
+            Disconnect socket from remote side
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppSocket.ConnectionTimeout">
+            <summary>
+            Gets or sets the time to wait while trying to establish a connection before terminating the attempt 
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppSocket.Connected">
+            <summary>
+            Gets whether the ESME connected to SMSC
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppSocket.EnabledSslProtocols">
+            <summary>
+            Defines enabled versions of SSL Protocols for SMPP client. 
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppSocket.ClientCertificates">
+            <summary>
+            Defines collection of Client Certificates
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppSocket.evCertificateValidation">
+            <summary>
+            Validating the certificate supplied by the remote party.
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppSocket.evConnected">
+            <summary>
+            Occurs when ESME connected to SMSC
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppSocket.evDisconnecting">
+            <summary>
+            Occurs when client disconnects 
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.SMSCDeliveryReceipt">
+            <summary>
+            SMSC Delivery Receipt (bits 1 and 0 of registered_delivery)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.SMSCDeliveryReceipt.NotRequested">
+            <summary>
+            No SMSC Delivery Receipt requested (default)
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.SMSCDeliveryReceipt.SuccessOrFailure">
+            <summary>
+            SMSC Delivery Receipt requested where final delivery outcome is delivery success or failure
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.SMSCDeliveryReceipt.Failure">
+            <summary>
+            SMSC Delivery Receipt requested where the final delivery outcome is delivery failure
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.SubmitMode">
+            <summary>
+            Identifies the way how to send multi-part text in the SUBMIT_SM PDU.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.SubmitMode.ShortMessage">
+            <summary>
+            Send user data in the short_message field and concatenation options in user data header.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.SubmitMode.Payload">
+            <summary>
+            Send user data in the message_payload field and concatenation options in TLV paramaters
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.SubmitMode.ShortMessageWithSAR">
+            <summary>
+            Send user data in the short_message field and concatenation options in TLV paramaters
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.TLV">
+            <summary>
+            Represents TLV (Tag, Length, Value) format for optional parameters.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.TLV.Tag">
+            <summary>
+            The Tag field is used to uniquely identify the particular optional parameter.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.TLV.Length">
+            <summary>
+            Indicates the length of the Value property in octets.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.TLV.Value">
+            <summary>
+            Contains the actual data for the optional parameter
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.TLV.TagValue">
+            <summary>
+            Identifies the particular optional parameter.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.TLVCollection">
+            <summary>
+            Collection of optional parameters in TLV format.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.Ton">
+            <summary>
+            Type of Number (TON) used in the SME address parameters.
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Ton.Unknown">
+            <summary>
+            Unknown
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Ton.International">
+            <summary>
+            International
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Ton.National">
+            <summary>
+            National
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Ton.NetworkSpecific">
+            <summary>
+            NetworkSpecific
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Ton.SubscriberNumber">
+            <summary>
+            SubscriberNumber
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Ton.Alphanumeric">
+            <summary>
+            Alphanumeric
+            </summary>
+        </member>
+        <member name="F:Inetlab.SMPP.Common.Ton.Abbreviated">
+            <summary>
+            Abbreviated
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.UnsuccessDestinationAddress">
+            <summary>
+            Represents SME address or/and Distribution name to which submission was unsuccessful
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.UnsuccessDestinationAddress.Ton">
+            <summary>
+            Type of Number for destination.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.UnsuccessDestinationAddress.Npi">
+            <summary>
+            Numbering Plan Indicator for destination.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.UnsuccessDestinationAddress.Address">
+            <summary>
+            Destination address of short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.UnsuccessDestinationAddress.ErrorStatus">
+            <summary>
+            Indicates the success or failure of the request to this SME address.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.UserData">
+            <summary>
+            UserData class contains the user data of PDU
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.UserData.ShortMessage">
+            <summary>
+            octets of Short Message
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.UserData.Headers">
+            <summary>
+            GSM User Data Header information in the short message
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.UserDataHeaderCollection">
+            <summary>
+            User Data Header Collection
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.UserDataHeaderCollection.Of``1">
+            <summary>
+            Returns user data headers of specified type
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.UserDataHeaderCollection.op_Implicit(System.Byte[])~Inetlab.SMPP.Common.UserDataHeaderCollection">
+            <summary>
+            Converts byte array to UserDataHeaderCollection
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.UserDataHeaderCollection.op_Implicit(Inetlab.SMPP.Common.UserDataHeaderCollection)~System.Byte[]">
+            <summary>
+            Converts UserDataHeaderCollection to byte array
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Encodings.GSMPackedEncoding">
+            <summary>
+            Represents packed GSM 03.38 character encoding of Unicode characters. 
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Encodings.GSMEncoding">
+            <summary>
+            Represents unpacked GSM 03.38 character encoding of Unicode characters. 
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Encodings.GSMPackedEncoding.AddFiller(System.Byte,System.Byte[])">
+            <summary>
+            Prepends specified number of bits of padding to the message. Adds filler to align the user data to septets after UDH.
+            </summary>
+            <param name="prependBits">number of bits</param>
+            <param name="orig">original byte array of the message</param>
+        </member>
+        <member name="M:Inetlab.SMPP.Encodings.GSMPackedEncoding.RemoveFiller(System.Byte,System.Byte[])">
+            <summary>
+            Removes a number of bits from beginning of the message
+            </summary>
+            <param name="removedBits">number of bits</param>
+            <param name="orig">original byte array of the message</param>
+        </member>
+        <member name="P:Inetlab.SMPP.LicenseInfo.Status">
+            <summary>
+            Returns actual staus of the license. It helps to distinguish evaluation license from full license.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.OutBind">
+            <summary>
+            Outbind allows MC to initiate a SMPP session
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.SmppPDU">
+            <summary>
+            Base class represented SMPP PDU, contains SMPP Header.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.SmppPDU.#ctor">
+            <summary>
+            Create instance of Header
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.SmppPDU.ParseHeader(Inetlab.SMPP.Common.SmppBuffer,System.Int32@)">
+            <summary>
+            Returns SMPP header or null when stream corrupted
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SmppPDU.Length">
+            <summary>
+            Overall length of the PDU.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SmppPDU.Command">
+            <summary>
+            command_id
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SmppPDU.Status">
+            <summary>
+            command status
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SmppPDU.Sequence">
+            <summary>
+            unique sequence number. PDU will echo the same sequence number.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SmppPDU.Client">
+            <summary>
+            Gets SMPP client bound with this PDU
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SmppPDU.Tag">
+            <summary>
+            Gets or sets an object that contains data to associate with the PDU.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.OutBind.SystemId">
+            <summary>
+            Identifies the MC to the ESME.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.OutBind.Password">
+            <summary>
+            The password may be used by the ESME for security reasons to authenticate the MC originating the outbind.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Resources.buildDate">
+             <summary>
+               Looks up a localized string similar to 20161024-220339
+            .
+             </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.SmppClient">
+            <summary>
+            SMPP protocol client class for connection with an SMSC over a TCP/IP 
+            and for sending or receiving short messages to and from the SMSC. 
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Connect(System.String,System.Int32)">
+            <summary>
+            Connect to SMSC using hostname and port number
+            </summary>
+            <param name="hostName">SMSC hostname</param>
+            <param name="port">SMSC port</param>
+            <returns>A Boolean value indicating true if the client is connected, false if not.</returns>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.ConnectAsync(System.String,System.Int32)">
+            <summary>
+            Connect to SMPP server using hostname and port number.
+            </summary>
+            <param name="hostName">SMPP server hostname</param>
+            <param name="port">SMPP port</param>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Connect(System.Net.EndPoint)">
+            <summary>
+            Connect to SMSC using IPEndPoint instance
+            </summary>
+            <param name="endPoint">IPEndPoint instance</param>
+            <returns>A Boolean value indicating true if the client is connected, false if not.</returns>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Bind(System.String,System.String)">
+            <summary>
+            Register client as Transceiver with the SMSC system and request an SMPP session
+            </summary>
+            <param name="systemId">Identifies the ESME system requesting to bind with the SMSC.</param>
+            <param name="password">password used by the SMSC to authenticate the client.</param>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Bind(System.String,System.String,Inetlab.SMPP.Common.ConnectionMode)">
+            <summary>
+            Registers client as <see cref="T:Inetlab.SMPP.Common.ConnectionMode"/> with the SMSC system and requests an SMPP session
+            </summary>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Bind(Inetlab.SMPP.PDU.Bind)">
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.BindAsync(System.String,System.String)">
+            <summary>
+            Register client as Transceiver with the SMSC system and request an SMPP session, asynchronously.
+            </summary>
+            <param name="systemId">Identifies the ESME system requesting to bind with the SMSC.</param>
+            <param name="password">password used by the SMSC to authenticate the client.</param>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.BindAsync(System.String,System.String,Inetlab.SMPP.Common.ConnectionMode)">
+            <summary>
+            Register client as <see cref="T:Inetlab.SMPP.Common.ConnectionMode"/> with the SMSC system and request an SMPP session, asynchronously.
+            </summary>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.BindAsync(Inetlab.SMPP.PDU.Bind)">
+            <summary>
+            Register client as Transceiver with the SMSC system and request an SMPP session, asynchronously.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.OutBind(Inetlab.SMPP.PDU.OutBind)">
+            <summary>
+            Initiates SMPP session as Message Center. It is not intended to be used by VASP.
+            </summary>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.OutBind(System.String,System.String)">
+            <summary>
+            Initiates SMPP session as Message Center. It is not intended to be used by VASP.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Submit(Inetlab.SMPP.PDU.SubmitSm)">
+            <summary>
+            Submits PDU message to the SMSC
+            </summary>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Submit(System.Collections.Generic.IList{Inetlab.SMPP.PDU.SubmitSm})">
+            <summary>
+            Submits an array of SubmitSm messages to the SMSC.
+            </summary>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>        
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Submit(Inetlab.SMPP.Builders.IBuilder{Inetlab.SMPP.PDU.SubmitSm})">
+            <summary>
+            Submits an array of SubmitSm messages from SMS builder function.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.SubmitAsync(Inetlab.SMPP.Builders.IBuilder{Inetlab.SMPP.PDU.SubmitSm})">
+            <summary>
+            Submits an array of SubmitSm messages from SMS builder function, asynchronously.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.SubmitAsync(Inetlab.SMPP.PDU.SubmitSm)">
+            <summary>
+            Submits SubmitSm message to the SMSC, asynchronously.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.SubmitAsync(System.Collections.Generic.IList{Inetlab.SMPP.PDU.SubmitSm})">
+            <summary>
+            Submits an array of SubmitSm messages to the SMSC, asynchronously.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Submit(Inetlab.SMPP.PDU.SubmitMulti)">
+            <summary>
+            Submits a SubmitMulti message to the SMSC
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Submit(System.Collections.Generic.IList{Inetlab.SMPP.PDU.SubmitMulti})">
+            <summary>
+            Submits an array of SubmitMulti messages to the SMSC.
+            </summary>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Submit(Inetlab.SMPP.Builders.IBuilder{Inetlab.SMPP.PDU.SubmitMulti})">
+            <summary>
+            Submits an array of SubmitMulti messages from SMS builder function.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.SubmitAsync(Inetlab.SMPP.Builders.IBuilder{Inetlab.SMPP.PDU.SubmitMulti})">
+            <summary>
+            Submits an array of SubmitMulti messages from SMS builder function, asynchronously.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.SubmitAsync(Inetlab.SMPP.PDU.SubmitMulti)">
+            <summary>
+            Submits a SubmitMulti message to the SMSC, asynchronously.
+            </summary>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.SubmitAsync(System.Collections.Generic.IList{Inetlab.SMPP.PDU.SubmitMulti})">
+            <summary>
+            Submits an array of SubmitMulti messages to the SMSC, asynchronously.
+            </summary>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Cancel(System.String,System.String,System.Byte,System.Byte,System.String,System.Byte,System.Byte,System.String)">
+            <summary>
+            Cancel previously submitted short message that is still pending delivery.
+            </summary>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Cancel(Inetlab.SMPP.PDU.CancelSm)">
+            <summary>
+            Cancels previously submitted short message that is still pending delivery.
+            </summary>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.CancelAsync(Inetlab.SMPP.PDU.CancelSm)">
+            <summary>
+            Cancel previously submitted short message that is still pending delivery., asynchronously.
+            </summary>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Query(System.String,System.Byte,System.Byte,System.String)">
+            <summary>
+            Query the status of a previously submitted short message.
+            </summary>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.Query(Inetlab.SMPP.PDU.QuerySm)">
+            <summary>
+            Query the status of a previously submitted short message.
+            </summary>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppClient.QueryAsync(Inetlab.SMPP.PDU.QuerySm)">
+            <summary>
+            Query the status of a previously submitted short message, asynchronously.
+            </summary>
+            <exception cref="T:Inetlab.SMPP.Common.SmppException">The client disconnected</exception>
+        </member>
+        <member name="P:Inetlab.SMPP.SmppClient.EnabledSslProtocols">
+            <summary>
+            Defines enabled versions of SSL Protocols for SMPP client. 
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.SmppClient.ClientCertificates">
+            <summary>
+            Defines collection of Client Certificates
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppClient.evBindComplete">
+            <summary>
+            Occurs when received Bind response PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppClient.evAlertNotification">
+            <summary>
+            Occurs when received AlertNotification PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppClient.evDeliverSm">
+            <summary>
+            Occurs when receiving DeliverSm PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppClient.evSubmitComplete">
+            <summary>
+            Occurs when received SubmitSmResp PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppClient.evSubmitMultiComplete">
+            <summary>
+            Occurs when received SubmitMultiResp PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppClient.evCancelComplete">
+            <summary>
+            Occurs when received CancelSmResp PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppClient.evQueryComplete">
+            <summary>
+            Occurs when received QuerySmResp PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppClient.evServerCertificateValidation">
+            <summary>
+             Occurs when validating server certificate
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.AlertNotification">
+            <summary>
+            This message is sent by the SMSC to the ESME, when the SMSC has detected that a particular
+            mobile subscriber has become available and a delivery pending flag had been set for that
+            subscriber from a previous data_sm operation
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.CancelSm">
+            <summary>
+            Cancel previously submitted short message that is still pending delivery.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.CancelSmResp">
+            <summary>
+            Represents the response to the CANCEL_SM PDU. 
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.DataSm">
+            <summary>
+            This command is used to transfer data between the SMSC and the ESME. It may be used by
+            both the ESME and SMSC.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.DataSm.Serialize(Inetlab.SMPP.PDU.DataSm)">
+            <summary>
+            Serializes DataSm object to the byte array
+            </summary>
+            <param name="data">DataSm object to serialize</param>
+            <returns>Returns byte array</returns>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.DataSm.Deserialize(System.Byte[])">
+            <summary>
+            Deserializes byte array to the DataSm object
+            </summary>
+            <param name="data">Byte array to deseriaize</param>
+            <returns>Returns DataSm object</returns>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.Concatenation">
+            <summary>
+            Gets concatenation parameters.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.EsmClass">
+            <summary>
+            Gets or sets special message attributes associated with the short message.
+            </summary>
+            <value>The esm class.</value>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.SourceAddrTon">
+            <summary>
+            Type of Number for source address.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.SourceAddrNpi">
+            <summary>
+            Numbering Plan Indicator for source address.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.SourceAddr">
+            <summary>
+            Address of SME which originated this message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.DestAddrTon">
+            <summary>
+            Type of Number for destination.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.DestAddrNpi">
+            <summary>
+            Numbering Plan Indicator for destination.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.DestAddr">
+            <summary>
+            Destination address
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.DataCoding">
+            <summary>
+            Indicates the encoding scheme of the payload data
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.MessageMode">
+            <summary>
+            Messaging Mode
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.MessageType">
+            <summary>
+            Message Type
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.MessageFeature">
+            <summary>
+            GSM Network Specific Features
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.SMSCReceipt">
+            <summary>
+            SMSC Delivery Receipt
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.Acknowledgement">
+            <summary>
+            SME originated Acknowledgement
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.Notification">
+            <summary>
+            Intermediate Notificat
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.Optional">
+            <summary>
+            Optional Parameters 
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.PacketBytes">
+            <summary>
+            Packet octets of SMPP PDU
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSm.MessageText">
+            <summary>
+            Gets message text in specified data coding.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.DataSmResp">
+            <summary>
+            Represents the response to the data_sm PDU.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.DataSmResp.Serialize(Inetlab.SMPP.PDU.DataSmResp)">
+            <summary>
+            Serializes DataSmResp object to the byte array
+            </summary>
+            <param name="deliver">DataSmResp object to serialize</param>
+            <returns>Returns byte array</returns>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.DataSmResp.Deserialize(System.Byte[])">
+            <summary>
+            Deserializes byte array to the DataSmResp object
+            </summary>
+            <param name="data">Byte array to deseriaize</param>
+            <returns>Returns DataSmResp object</returns>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSmResp.MessageId">
+            <summary>
+            The unique message identifier reference assigned by the SMSC to each submitted short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DataSmResp.Optional">
+            <summary>
+            Optional Parameters 
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.DeliverSm">
+            <summary>
+            The deliver_sm is issued by the SMSC to send a message to an ESME. Using this command,
+            the SMSC may route a short message to the ESME for delivery.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.DeliverSm.Serialize(Inetlab.SMPP.PDU.DeliverSm)">
+            <summary>
+            Serializes DeliverSm object to the byte array
+            </summary>
+            <param name="deliver">DeliverSm object to serialize</param>
+            <returns>Returns byte array</returns>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.DeliverSm.Deserialize(System.Byte[])">
+            <summary>
+            Deserializes byte array to the DeliverSm object
+            </summary>
+            <param name="data">Byte array to deseriaize</param>
+            <returns>Returns DeliverSm object</returns>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.DeliverSm.Clone">
+            <summary>
+            Returns deep copy of current instance;
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.EsmClass">
+            <summary>
+            Gets or sets special message attributes associated with the short message.
+            </summary>
+            <value>The esm class.</value>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.ServiceType">
+            <summary>
+            Indicates the SMS Application service associated with the message
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.SourceAddrTon">
+            <summary>
+            Type of Number for source address.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.SourceAddrNpi">
+            <summary>
+            Numbering Plan Indicator for source.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.SourceAddr">
+            <summary>
+            Address of SME which originated this message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.DestAddrTon">
+            <summary>
+            Type of number of destination SME.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.DestAddrNpi">
+            <summary>
+            Numbering Plan Indicator of destination SME.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.DestAddr">
+            <summary>
+            Destination address of destination SME.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.DataCoding">
+            <summary>
+            Indicates the encoding scheme of the short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.UserDataPdu">
+            <summary>
+            Gets or sets user data of the short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.MessageText">
+            <summary>
+            Gets message text in specified data coding.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.MessageMode">
+            <summary>
+            Indicates message mode associated with the short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.MessageType">
+            <summary>
+            Indicates message type associated with the short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.MessageFeature">
+            <summary>
+            Indicates GSM Network Specific Features associated with the short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.SMSCReceipt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.Acknowledgement">
+            <summary>
+            Indicates SME originated Acknowledgement
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.Notification">
+            <summary>
+            Indicates whether Intermediate notification is requested.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.Optional">
+            <summary>
+            Optional Parameters
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.ProtocolId">
+            <summary>
+            Protocol Identifier.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.PriorityFlag">
+            <summary>
+            Priority level. 0 lowest, 3 highest
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.RegisteredDelivery">
+            <summary>
+            Indicates if an ESME acknowledgement is required.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.Concatenation">
+            <summary>
+            Gets concatenation parameters.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.Receipt">
+            <summary>
+            Gets or sets delivery receipt of submited short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSm.PacketBytes">
+            <summary>
+            Returns DeliverSm packet bytes
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.DeliverSmResp">
+            <summary>
+            Represents the response to the deliver_sm PDU.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.DeliverSmResp.Serialize(Inetlab.SMPP.PDU.DeliverSmResp)">
+            <summary>
+            Serializes DeliverSmResp object to the byte array
+            </summary>
+            <param name="deliver">DeliverSmResp object to serialize</param>
+            <returns>Returns byte array</returns>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.DeliverSmResp.Deserialize(System.Byte[])">
+            <summary>
+            Deserializes byte array to the DeliverSmResp object
+            </summary>
+            <param name="data">Byte array to deseriaize</param>
+            <returns>Returns DeliverSmResp object</returns>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.DeliverSmResp.Optional">
+            <summary>
+            Optional Parameters 
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.EnquireLink">
+            <summary>
+            This message can be sent by either the ESME or SMSC and is used to provide a confidencecheck
+            of the communication path between an ESME and an SMSC.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.EnquireLink.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.EnquireLinkResp">
+            <summary>
+            Represents the response to the enquire_link PDU.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.GenericNack">
+            <summary>
+            This is a generic negative acknowledgement to an SMPP PDU submitted with an invalid
+            message header.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.Bind">
+            <summary>
+            Register an instance of an ESME with the SMSC system 
+            and request an SMPP session over this network connection 
+            for the submission or delivery of messages
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.Bind.InterfaceVersion">
+            <summary>
+            Indicates the version of the SMPP protocol supported by the ESME.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.Bind.SystemId">
+            <summary>
+            Identifies the ESME system requesting to bind as a transmitter with the MC.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.Bind.Password">
+            <summary>
+            The password may be used by the MC to authenticate the ESME requesting to bind.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.Bind.SystemType">
+            <summary>
+            Identifies the type of ESME system requesting to bind as a transmitter with the MC.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.Bind.AddrTon">
+            <summary>
+            Indicates Type of Number of the ESME address. If not known set to 0.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.Bind.AddrNpi">
+            <summary>
+            Numbering Plan Indicator for ESME address. If not known set to 0.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.Bind.AddressRange">
+            <summary>
+            Identifies a set of SME addresses. 
+            Regular Expression notation should be used to specify a range of addresses.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.BindResp">
+            <summary>
+            Represents the response to the bind PDU. 
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.BindResp.ChangeSystemId(System.String)">
+            <summary>
+            Change SMPP server identifier. Limited to 15 characters.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.BindResp.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.BindResp.SystemId">
+            <summary>
+            SMSC identifier
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.UnBind">
+            <summary>
+            Deregister an instance of an ESME from the
+            SMSC and inform the SMSC that the ESME no longer wishes to use this network connection
+            for the submission or delivery of messages.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.UnBindResp">
+            <summary>
+            Represents the response to the unbind PDU. 
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.QuerySm">
+            <summary>
+            Query the status of a previously submitted short message
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.QuerySmResp">
+            <summary>
+            Represents the response to the query_sm_resp PDU. 
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.SubmitMulti">
+            <summary>
+            SubmitMulti PDU to submit an SMPP message for delivery to multiple
+            recipients or to one or more Distribution Lists
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.SubmitMulti.Serialize(Inetlab.SMPP.PDU.SubmitMulti)">
+            <summary>
+            Serializes SubmitMulti object to the byte array
+            </summary>
+            <param name="submit">SubmitMulti object to serialize</param>
+            <returns>Returns byte array</returns>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.SubmitMulti.Deserialize(System.Byte[])">
+            <summary>
+            Deserializes byte array to the SubmitMulti object
+            </summary>
+            <param name="data">Byte array to deseriaize</param>
+            <returns>Returns SubmitMulti object</returns>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.Concatenation">
+            <summary>
+            Gets concatenation parameters.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.ServiceType">
+            <summary>
+            Indicates the SMS Application service associated with the message
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.SourceAddrTon">
+            <summary>
+            Type of Number for source address.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.SourceAddrNpi">
+            <summary>
+            Numbering Plan Indicator for source address.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.SourceAddr">
+            <summary>
+            Address of SME which originated this message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.DestinationAddresses">
+            <summary>
+            Contains one or more SME addresses or/and Distribution List names
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.EsmClass">
+            <summary>
+            Indicates Message Mode and Message Type.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.ProtocolId">
+            <summary>
+            Protocol Identifier. Network specific field.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.PriorityFlag">
+            <summary>
+            Designates the priority level of the message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.ScheduledDeliveryTime">
+            <summary>
+            The short message is to be scheduled by the SMSC for delivery. 
+            Set to NULL for immediate message delivery.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.ValidityPeriod">
+            <summary>
+            The validity period of this message. Set to NULL to request the SMSC default validity period.
+            Format 'YYMMDDhhmmsstnnp'.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.RegisteredDelivery">
+            <summary>
+            Indicator to signify if an SMSC delivery receipt or an SME acknowledgement is required.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.ReplaceIfPresent">
+            <summary>
+            Flag indicating if submitted message should replace an existing message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.DataCoding">
+            <summary>
+            Defines the encoding scheme of the short message user data.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.DefaultMessageId">
+            <summary>
+            Indicates the short message to send from a list of predefined (‘canned’) short messages stored on the SMSC. If not using an SMSC canned message, set to NULL.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMulti.MessageText">
+            <summary>
+            Gets message text in specified data coding.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.SubmitMultiResp">
+            <summary>
+            Represents the response to the submit_multi PDU.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.SubmitMultiResp.Serialize(Inetlab.SMPP.PDU.SubmitMultiResp)">
+            <summary>
+            Serializes SubmitMultiResp object to the byte array
+            </summary>
+            <param name="resp">SubmitMultiResp object to serialize</param>
+            <returns>Returns byte array</returns>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.SubmitMultiResp.Deserialize(System.Byte[])">
+            <summary>
+            Deserializes byte array to the SubmitMultiResp object
+            </summary>
+            <param name="data">Byte array to deseriaize</param>
+            <returns>Returns SubmitMultiResp object</returns>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMultiResp.MessageId">
+            <summary>
+            The unique message identifier reference assigned by the SMSC to each submitted short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMultiResp.UnsuccessAddresses">
+            <summary>
+            Contains one or more SME address(es) to which submission was unsuccessful.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitMultiResp.Optional">
+            <summary>
+            Optional Parameters 
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.SubmitSm">
+            <summary>
+            SubmitSm PDU to submit a short message to the SMSC
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.SubmitSm.Serialize(Inetlab.SMPP.PDU.SubmitSm)">
+            <summary>
+            Serializes SubmitSm object to the byte array
+            </summary>
+            <param name="submit">SubmitSm object to serialize</param>
+            <returns>Returns byte array</returns>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.SubmitSm.Deserialize(System.Byte[])">
+            <summary>
+            Deserializes byte array to the SubmitSm object
+            </summary>
+            <param name="data">Byte array to deseriaize</param>
+            <returns>Returns SubmitSm object</returns>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.Concatenation">
+            <summary>
+            Gets concatenation parameters.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.ServiceType">
+            <summary>
+            Indicates the SMS Application service associated with the message
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.SourceAddrTon">
+            <summary>
+            Type of Number for source address.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.SourceAddrNpi">
+            <summary>
+            Numbering Plan Indicator for source address.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.SourceAddr">
+            <summary>
+            Address of SME which originated this message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.DestAddrTon">
+            <summary>
+            Type of Number for destination.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.DestAddrNpi">
+            <summary>
+            Numbering Plan Indicator for destination.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.DestAddr">
+            <summary>
+            Destination address of this short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.EsmClass">
+            <summary>
+            Indicates Message Mode and Message Type.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.ProtocolId">
+            <summary>
+            Protocol Identifier. Network specific field.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.PriorityFlag">
+            <summary>
+            Designates the priority level of the message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.ScheduledDeliveryTime">
+            <summary>
+            The short message is to be scheduled by the SMSC for delivery. 
+            Set to NULL for immediate message delivery.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.ValidityPeriod">
+            <summary>
+            The validity period of this message. Set to NULL to request the SMSC default validity period.
+            Format 'YYMMDDhhmmsstnnp'.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.RegisteredDelivery">
+            <summary>
+            Indicator to signify if an SMSC delivery receipt or an SME acknowledgement is required.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.ReplaceIfPresent">
+            <summary>
+            Flag indicating if submitted message should replace an existing message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.DataCoding">
+            <summary>
+            Defines the encoding scheme of the short message user data.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.DefaultMessageId">
+            <summary>
+            Indicates the short message to send from a list of predefined (‘canned’) short messages stored on the SMSC. If not using an SMSC canned message, set to 0.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSm.MessageText">
+            <summary>
+            Gets message text in specified data coding.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.SubmitSmResp">
+            <summary>
+            Represents the response to the submit_sm PDU.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.SubmitSmResp.Serialize(Inetlab.SMPP.PDU.SubmitSmResp)">
+            <summary>
+            Serializes SubmitSmResp object to the byte array
+            </summary>
+            <param name="resp">SubmitSmResp object to serialize</param>
+            <returns>Returns byte array</returns>
+        </member>
+        <member name="M:Inetlab.SMPP.PDU.SubmitSmResp.Deserialize(System.Byte[])">
+            <summary>
+            Deserializes byte array to the SubmitSmResp object
+            </summary>
+            <param name="data">Byte array to deseriaize</param>
+            <returns>Returns SubmitSmResp object</returns>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSmResp.MessageId">
+            <summary>
+            The unique message identifier reference assigned by the SMSC to each submitted short message.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.SubmitSmResp.Optional">
+            <summary>
+            Optional Parameters 
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.PDU.UnknownPacket">
+            <summary>
+            Unknown bytes array received from remote end-point.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.PDU.UnknownPacket.ReceivedBytes">
+            <summary>
+            Returns packet bytes
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.SmppErrorEventArgs">
+            <summary>
+            Class that provides event data for errors occured during process SMPP messages
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.Common.SmppServerClient">
+            <summary>
+            Represents remote client on the server
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppServerClient.Deliver(Inetlab.SMPP.PDU.DeliverSm)">
+            <summary>
+            Sends message from SMSC to ESME
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppServerClient.DeliverAsync(Inetlab.SMPP.Builders.IBuilder{Inetlab.SMPP.PDU.DeliverSm})">
+            <summary>
+            Submits an array of DeliverSm messages from SMS builder function, asynchronously.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppServerClient.DeliverAsync(Inetlab.SMPP.PDU.DeliverSm)">
+            <summary>
+            Submits DeliverSm message from SMSC to ESME, asynchronously.
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.Common.SmppServerClient.DeliverAsync(System.Collections.Generic.IList{Inetlab.SMPP.PDU.DeliverSm})">
+            <summary>
+            Submits an array of DeliverSm messages from SMSC to ESME, asynchronously.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppServerClient.InterfaceVersion">
+            <summary>
+            Indicates the version of the SMPP protocol supported by the ESME.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppServerClient.BindingMode">
+            <summary>
+            Connection mode in which client bound to SMPP server
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.Common.SmppServerClient.ClientCertificate">
+            <summary>
+            SSL Client Certificate used to authenticate on the SMPP Server.
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppServerClient.evBind">
+            <summary>
+            Occurs when Bind packet received 
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppServerClient.evOutBind">
+            <summary>
+            Occurs when OutBind packet received 
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppServerClient.evSubmitSm">
+            <summary>
+            Occurs when receiving SubmitSm PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppServerClient.evSubmitMulti">
+            <summary>
+            Occurs when receiving SubmitMulti PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppServerClient.evQuerySm">
+            <summary>
+            Occurs when receiving QuerySm PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppServerClient.evCancelSm">
+            <summary>
+            Occurs when receiving CancelSm PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.Common.SmppServerClient.evDeliverComplete">
+            <summary>
+            Occurs when received DeliverSmResp PDU
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.SmppServer">
+            <summary>
+            SMPP protocol server class provides ability to create SMPP gateway
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppServer.Start(System.Int32)">
+            <summary>
+            Start server on specified port
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppServer.Stop">
+            <summary>
+            Stop server
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SmppServer.Start(System.Net.IPEndPoint)">
+            <summary>
+             Start the SMPP server on the specified endpoint.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.SmppServer.SessionInitiationTimeout">
+            <summary>
+            Specifies a period of time in which SmppServer will wait for Bind command from SmppClient. Default is 20 seconds.
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.SmppServer.ServerCertificate">
+            <summary>
+            Gets or sets server certificate for SSL connection
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.SmppServer.ConnectedClients">
+            <summary>
+            Gets a list of connected clients
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.SmppServer.Port">
+            <summary>
+            Gets SMPP server port
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.SmppServer.Ip">
+            <summary>
+            Gets IP address of SMPP server
+            </summary>
+        </member>
+        <member name="P:Inetlab.SMPP.SmppServer.EnabledSslProtocols">
+            <summary>
+            Defines enabled versions of SSL Protocols for SMPP client. 
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppServer.evServerStarted">
+            <summary>
+            Occurs when server is started
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppServer.evClientConnected">
+            <summary>
+            Occurs when SmppClient is connected
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppServer.evClientDisconnected">
+            <summary>
+            Occurs when SmppClient is disconnected
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppServer.evClientBind">
+            <summary>
+            Occurs when SmppClient bind with server
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppServer.evClientOutBind">
+            <summary>
+            Occurs when MC initiate a SMPP session
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppServer.evClientUnBind">
+            <summary>
+            Occurs when SmppClient unbind from server
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppServer.evClientSubmitSm">
+            <summary>
+            Occurs when SmppClient sent SUBMIT_SM PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppServer.evClientSubmitMulti">
+            <summary>
+            Occurs when SmppClient sent SUBMIT_MULTI PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppServer.evClientDataSm">
+            <summary>
+            Occurs when SmppClient sent DATA_SM PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppServer.evClientQuerySm">
+            <summary>
+            Occurs when SmppClient sent QUERY_SM PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppServer.evClientCancelSm">
+            <summary>
+            Occurs when SmppClient sent CANCEL_SM PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppServer.evClientEnquireLink">
+            <summary>
+            Occurs when SmppClient sent ENQUIRE_LINK PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppServer.evClientGenericNack">
+            <summary>
+            Occurs when SmppClient sent GENERIC_NACK PDU
+            </summary>
+        </member>
+        <member name="E:Inetlab.SMPP.SmppServer.evClientCertificateValidation">
+            <summary>
+            Validating client certificate.
+            </summary>
+        </member>
+        <member name="T:Inetlab.SMPP.SMS">
+            <summary>
+            Initiates SMS builders
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SMS.ForDeliver">
+            <summary>
+            Creates DeliverSm messages
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SMS.ForSubmit">
+            <summary>
+            Creates SubmitSm messages
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SMS.ForSubmitMulti">
+            <summary>
+            Creates SubmitMulti messages
+            </summary>
+        </member>
+        <member name="M:Inetlab.SMPP.SMS.ForWapPush">
+            <summary>
+            Creates WAP Push message
+            </summary>
+        </member>
+    </members>
+</doc>
